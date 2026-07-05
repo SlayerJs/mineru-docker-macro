@@ -2,26 +2,34 @@
 
 This repository provides a universal, hardware-agnostic Docker pipeline to convert scientific PDF files into Markdown using the [MinerU](https://github.com/opendatalab/MinerU) deep learning library. It automatically handles hardware detection (NVIDIA, AMD, Apple Silicon, or CPU) to run the optimal configuration.
 
+## System Requirements & OS Compatibility
+
+Because this runs entirely inside Docker, there are no heavy Python dependencies or ML libraries to install locally! The script is designed to run seamlessly across all major operating systems:
+- **Linux & macOS**: Works perfectly out-of-the-box using the native terminal.
+- **Windows**: We strongly recommend installing **WSL2** (Windows Subsystem for Linux) and running the commands from a WSL terminal. Docker Desktop for Windows natively uses WSL2 as its backend, making this the smoothest and most compatible environment.
+
 ## Installation & Setup
 
-Because this pipeline runs entirely inside Docker, there are no heavy Python dependencies or ML libraries to install locally on your machine.
+1. **Ensure Docker is installed**:
+   Make sure Docker is running. You can download it from [Docker's official website](https://www.docker.com/).
 
-1. **Clone the repository**:
+2. **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/mineru-docker-macro.git
    cd mineru-docker-macro
    ```
 
-2. **Ensure Docker is installed**:
-   Make sure Docker is installed and currently running on your system. You can download it from [Docker's official website](https://www.docker.com/).
-
-3. **Make the execution script executable** (Linux/macOS):
+3. **Run the Universal Installer**:
+   To make the `run_mineru_parser` command available globally on your entire system (so you can run it from any folder), execute the installation script:
    ```bash
-   chmod +x run_parser.sh
+   ./install.sh
    ```
+   *(Note: This will safely create a symlink in `/usr/local/bin` and might prompt for `sudo` password).*
 
-4. **VS Code Setup** (Optional but Recommended):
-   If you want to use the 1-click status bar execution feature, open this repository folder in VS Code and install the **Action Buttons** extension (e.g., `seunlanlege.action-buttons`). The project configuration for this button is already provided in `.vscode/settings.json`.
+4. **Global VS Code Setup** (Optional but Highly Recommended):
+   If you want to use the 1-click status bar execution feature on *any* repository you open:
+   - Install the **Action Buttons** extension (`seunlanlege.action-buttons`) in VS Code.
+   - The `./install.sh` script will print out the exact JSON block you need to copy-paste into your VS Code **Global User Settings** and **Global Tasks**.
 
 ## Hardware Support
 
@@ -46,14 +54,13 @@ This repository includes a pre-configured VS Code task that allows you to trigge
 
 ### 2. Using the Command Line
 
-If you prefer to run the script manually from your terminal, you can directly invoke the `run_parser.sh` script:
+If you prefer to run the script manually from your terminal, you can directly invoke your newly installed global command from anywhere:
 
 ```bash
-# Run the script with the path to your PDF
-./run_parser.sh path/to/your/document.pdf
+run_mineru_parser path/to/your/document.pdf
 ```
 
-Just like the VS Code command, the parsed output will be generated inside the `output_markdown/` directory.
+Just like the VS Code command, the parsed output will be generated inside an `output_markdown/` directory in whichever folder you ran the command.
 
 ## Pipeline Workflow
 
