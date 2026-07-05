@@ -4,7 +4,7 @@
         {
             "label": "Convert PDF with MinerU (Universal)",
             "type": "shell",
-            "command": "./run_parser.sh '${file}'",
+            "command": "run_mineru_parser '${file}'",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
