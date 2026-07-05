@@ -1,0 +1,14 @@
+{
+    "actionButtons": {
+        "commands": [
+            {
+                "name": "$(play) Run Universal MinerU Parse",
+                "color": "#38bdf8",
+                "command": "workbench.action.tasks.runTask",
+                "args": [
+                    "Convert PDF with MinerU (Universal)"
+                ]
+            }
+        ]
+    }
+}
