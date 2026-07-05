@@ -9,7 +9,7 @@ INPUT_PDF="$1"
 # The directory where the user currently is (where the PDF lives)
 WORKSPACE_DIR="$(pwd)"
 # The directory where this script lives (so it can find Dockerfiles and clean_artifacts.py)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+SCRIPT_DIR="$(python3 -c 'import os, sys; print(os.path.dirname(os.path.realpath(sys.argv[1])))' "${BASH_SOURCE[0]}")"
 BASENAME="$(basename "$INPUT_PDF")"
 
 if command -v nvidia-smi &> /dev/null; then

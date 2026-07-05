@@ -24,7 +24,7 @@ Because this runs entirely inside Docker, there are no heavy Python dependencies
    ```bash
    ./install.sh
    ```
-   *(Note: This will safely create a symlink in `/usr/local/bin` and might prompt for `sudo` password).*
+   *(Note: This permanently copies the tools to `/opt/mineru-parser` and links them to your system path. Once installed, you can safely delete this downloaded repository!)*
 
 4. **Global VS Code Setup** (Optional but Highly Recommended):
    If you want to use the 1-click status bar execution feature on *any* repository you open:
